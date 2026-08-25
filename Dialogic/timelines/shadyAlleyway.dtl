@@ -6,7 +6,11 @@ Shady Alleyway
 	Your total money is now {Global.player_money}
 - Buy Contraband Goods
 	- Antenna - $XXX
+		do Inventory.add_item("Antenna")
+		Your current items are {Inventory.items[0]}
 	- Storage Unit Key - $XXX
 	- Fake ID - $XXX
 - Break Into Abandoned Cars (Requires Crowbar)
+	if {Inventory.has_item("Crowbar")}:
+		You've found an intact catalytic converter
 - Sleep Here

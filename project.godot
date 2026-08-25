@@ -19,12 +19,20 @@ config/icon="res://icon.svg"
 
 Global="*uid://cijwexwimihnt"
 Dialogic="*uid://ds2q0uclmolvu"
+Inventory="*uid://bfieqygqvyk0y"
 
 [dialogic]
 
 directories/dch_directory={}
 directories/dtl_directory={
-"shadyAlleyway": "res://Dialogic/shadyAlleyway.dtl"
+"bar": "res://Dialogic/timelines/bar.dtl",
+"church": "res://Dialogic/timelines/church.dtl",
+"gunStore": "res://Dialogic/timelines/gunStore.dtl",
+"hospital": "res://Dialogic/timelines/hospital.dtl",
+"policeStation": "res://Dialogic/timelines/policeStation.dtl",
+"shadyAlleyway": "res://Dialogic/timelines/shadyAlleyway.dtl",
+"storageFacility": "res://Dialogic/timelines/storageFacility.dtl",
+"store": "res://Dialogic/timelines/store.dtl"
 }
 layout/style_directory={}
 variables={

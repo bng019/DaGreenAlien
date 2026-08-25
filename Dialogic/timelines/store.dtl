@@ -1,0 +1,9 @@
+Bill’s General Goods
+- Investigate
+- Shop
+- Ask for Shelter
+- Rob the Store
+	if {Inventory.has_item("Gun")}:
+		You rob Bill
+	else:
+		Great job trying to rob the store without a gun. You are dead bozo.
