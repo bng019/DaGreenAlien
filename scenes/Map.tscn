@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3vmo2syvk1us"]
+
+[ext_resource type="Texture2D" uid="uid://4ftlrb3je26d" path="res://assets/Map.png" id="1_5hauk"]
+[ext_resource type="Script" uid="uid://dttb5or7vwmb4" path="res://scripts/alleyway.gd" id="2_lajc7"]
+
+[node name="Map" type="Node2D" unique_id=1921026271]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1215325020]
+position = Vector2(557, 324)
+texture = ExtResource("1_5hauk")
+region_enabled = true
+region_rect = Rect2(968.95215, 270.3238, 429.96484, 499.0067)
+
+[node name="Buildings" type="Node2D" parent="." unique_id=1956606880]
+
+[node name="Alleyway" type="TextureButton" parent="Buildings" unique_id=1395297447]
+offset_left = 428.0
+offset_top = 100.0
+offset_right = 680.0
+offset_bottom = 288.0
+script = ExtResource("2_lajc7")
+
+[connection signal="pressed" from="Buildings/Alleyway" to="Buildings/Alleyway" method="_on_pressed"]

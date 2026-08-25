@@ -1,0 +1,12 @@
+Shady Alleyway
+- Panhandle | [=""]
+	set {temp_money} = range(10,51).pick_random()
+	set {Global.player_money} += {temp_money}
+	You made {temp_money} money
+	Your total money is now {Global.player_money}
+- Buy Contraband Goods
+	- Antenna - $XXX
+	- Storage Unit Key - $XXX
+	- Fake ID - $XXX
+- Break Into Abandoned Cars (Requires Crowbar)
+- Sleep Here
