@@ -27,15 +27,19 @@ directories/dch_directory={}
 directories/dtl_directory={
 "bar": "res://Dialogic/timelines/bar.dtl",
 "church": "res://Dialogic/timelines/church.dtl",
+"died": "res://Dialogic/timelines/died.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
 "policeStation": "res://Dialogic/timelines/policeStation.dtl",
 "shadyAlleyway": "res://Dialogic/timelines/shadyAlleyway.dtl",
 "storageFacility": "res://Dialogic/timelines/storageFacility.dtl",
-"store": "res://Dialogic/timelines/store.dtl"
+"store": "res://Dialogic/timelines/store.dtl",
+"storeClosed": "res://Dialogic/timelines/storeClosed.dtl"
 }
 layout/style_directory={}
 variables={
+"catalytic_sold": false,
+"random_chance": 0,
 "temp_money": 0
 }
 text/letter_speed=0.01
