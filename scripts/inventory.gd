@@ -54,3 +54,11 @@ func _find_item(item_id: String) -> ItemInstance:
 		if item.item_id == item_id:
 			return item
 	return null
+
+func random_lose() -> void:
+	if items.is_empty():
+		return
+	var items_size = items.size()
+	var to_remove = randi_range(0, items_size)
+	items.remove_at(to_remove)
+	return

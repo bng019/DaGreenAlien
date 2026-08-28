@@ -1,6 +1,26 @@
 Freedom Supplier
 - Shop
-	- Bulletproof Vest
-	- 9mm Handgun
-	- Ammo
+	- Bulletproof Vest - $670
+		if {Global.player_money} >= 670:
+			do Inventory.add_item("Vest")
+		else:
+			Not enough money
+	- 9mm Handgun - $420
+		if {Global.player_money} >= 420:
+			do Inventory.add_item("Gun")
+		else:
+			Not enough money
+	- Ammo - $10
+		if {Inventory.has_item("Gun")} and {Inventory.player_money} >= 10:
+			do Inventory.add_item("Bullet")
+		elif {!Inventory.has_item("Gun")}:
+			What are you gonna do with just a bullet?? Buy a gun first!
+		elif {Inventory.has_item("Gun") and {Inventory.player_money} < 10:
+			Not enough money
+
 - Ask for Shelter
+	Vincenzo, the gun store owner, eyes your pockets and hands before accepting. Are you sure you want to continue?
+	- Yes
+		The day passes... you swear your belongings are a little lighter now
+		do Global.random_lose()
+	- No
