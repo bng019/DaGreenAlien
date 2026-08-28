@@ -1,3 +1,46 @@
 Our Lady of Guadalupe Catholic Church
+# #- Ask for forgiveness - $XXX
+# #	if {Global.player_money} >= 100:
+# #			if {Global.player_heat} >= 1:
+# #				set {Global.player_heat} -= 1
+# #			else:
+# #				Heat is at 0
+# #	else:
+# #		Not enough money
+
 - Get blessing from Priest
+	You feel yourself getting luckier
+	if {is_catholic} == false:
+		Would you like to convert to Catholicism?
+		- Yes
+			You accept Jesus Christ as your Lord and Savior. You have been saved!
+			set {is_catholic} = true
+		- No
+			The priest glances at you disgustingly. “Leave this house of God immediately!
 - Ask for Shelter
+	if {is_catholic} == false:
+		You need to have converted to Catholicism
+	else:
+		You stay the night at the church
+		Would you like to spend a bullet to make it safer?
+		- Yes
+			if {Inventory.has_item("Gun")} and {Inventory.has_item("Bullet")}:
+				do Inventory.remove_item("Bullet")
+				set {random_chance} = range(1,100).pick_random()
+				if {random_chance} <= 90:
+					You slept safely
+				else:
+					Despite being on guard, you wake up feeling cursed
+			else:
+				You don't have the resources to do that
+				set {random_chance} = range(1,100).pick_random()
+				if {random_chance} <= 60:
+					You slept safely
+				else:
+					You wake up feeling cursed
+		- No
+			set {random_chance} = range(1,100).pick_random()
+			if {random_chance} <= 60:
+				You slept safely
+			else:
+				You wake up feeling cursed

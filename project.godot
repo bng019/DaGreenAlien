@@ -30,6 +30,7 @@ directories/dtl_directory={
 "died": "res://Dialogic/timelines/died.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
+"outOfTravels": "res://Dialogic/timelines/outOfTravels.dtl",
 "policeStation": "res://Dialogic/timelines/policeStation.dtl",
 "shadyAlleyway": "res://Dialogic/timelines/shadyAlleyway.dtl",
 "storageFacility": "res://Dialogic/timelines/storageFacility.dtl",
@@ -39,6 +40,8 @@ directories/dtl_directory={
 layout/style_directory={}
 variables={
 "catalytic_sold": false,
+"is_catholic": false,
+"is_store_closed": false,
 "random_chance": 0,
 "temp_money": 0
 }
@@ -75,8 +78,6 @@ audio/channel_defaults={
 }
 }
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
 
 [display]
 

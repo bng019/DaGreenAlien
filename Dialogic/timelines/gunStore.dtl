@@ -15,12 +15,12 @@ Freedom Supplier
 			do Inventory.add_item("Bullet")
 		elif {!Inventory.has_item("Gun")}:
 			What are you gonna do with just a bullet?? Buy a gun first!
-		elif {Inventory.has_item("Gun") and {Inventory.player_money} < 10:
+		elif {Inventory.has_item("Gun")} and {Inventory.player_money} < 10:
 			Not enough money
 
 - Ask for Shelter
 	Vincenzo, the gun store owner, eyes your pockets and hands before accepting. Are you sure you want to continue?
 	- Yes
 		The day passes... you swear your belongings are a little lighter now
-		do Global.random_lose()
+		do Inventory.random_lose()
 	- No

@@ -38,6 +38,6 @@ Bill’s General Goods
 		You attempt to rob the store. With you looking disheveled and sickly, the storeowner Bill quickly notices and immediately lunges at you like a mighty tiger. He quickly disarms you and shoots you in the head. You are dead.
 	elif {Inventory.has_item("Gun")} and {Global.current_resolve()} >= 51.0:
 		Successfully rob the place
-		do Global.close_store()
+		set {is_store_closed} = true
 	else:
 		Great job trying to rob the store without a gun. You are dead bozo.

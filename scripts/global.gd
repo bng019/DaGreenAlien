@@ -4,8 +4,12 @@ extends Node #This is a global script, it autoloads every variable here and ever
 var resolve := PlayerStats.new() #Initializing Resolve and Hunger in the player_stats.gd script. I made that script to automatically detect when one of these stats hits 0
 var hunger := PlayerStats.new()
 var player_money := 50
-
-var store_closed = false
+var player_heat := 0
+var current_location := ""
+var actions_left := 5
+var travels_left := 3
+var max_actions := 5
+var max_travells := 3
 
 func _ready():
 	resolve.max_value = 100 #First time run when the game starts
@@ -29,5 +33,5 @@ func current_resolve() -> float: #Function to call in Dialogic to get current re
 func current_hunger() -> float: #Function to call in Dialogic to get current hunger
 	return hunger.current
 
-func close_store() -> void: #Function to close the store from being chosen. New Dialogic choice now
-	var store_closed = true
+func change_location(new_location: String) -> void:
+	current_location = new_location

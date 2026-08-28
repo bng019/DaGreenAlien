@@ -1,5 +1,32 @@
 Steve’s Tabernacle
-- Get a drink
-- Buy Galaxy Gas
+- Get a Mixed Drink - $XXX
+	if {Global.player_money} >= 100:
+		do Inventory.add_item("Mixed_Drink")
+	else:
+		Not enough money
+- Buy Galaxy Gas - $XXX
+	if {Global.player_money} >= 100:
+		do Inventory.add_item("Galaxy_Gas")
+	else:
+		Not enough money
 - Ask for Shelter
-- Flirt
+	if {Global.is_catholic} == false:
+		Yes
+	else:
+		No
+- Flirt with Stacey
+	if {Inventory.has_item("Cowboy_Disguise")}:
+		Now have access to Stacey’s House
+	else:
+		No
+- Ask the Bartender for Information - $XXX or Drink Mix
+	- $XXX
+		if {Global.player_money} >= 100:
+			Yes
+		else:
+			Not enough money
+	- Give Drink Mix
+		if {Inventory.has_item("Drink_Mix")}:
+			Yes
+		else:
+			You don't have a Drink Mix

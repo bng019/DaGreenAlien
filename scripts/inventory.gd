@@ -56,9 +56,11 @@ func _find_item(item_id: String) -> ItemInstance:
 	return null
 
 func random_lose() -> void:
+	#print(get_items_string()) For testing
 	if items.is_empty():
 		return
 	var items_size = items.size()
-	var to_remove = randi_range(0, items_size)
+	var to_remove = randi_range(0, items_size - 1)
 	items.remove_at(to_remove)
+	#print(get_items_string()) For testing
 	return
