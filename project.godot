@@ -28,6 +28,7 @@ directories/dtl_directory={
 "bar": "res://Dialogic/timelines/bar.dtl",
 "church": "res://Dialogic/timelines/church.dtl",
 "died": "res://Dialogic/timelines/died.dtl",
+"displayInvo": "res://Dialogic/timelines/displayInvo.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
 "outOfTravels": "res://Dialogic/timelines/outOfTravels.dtl",
@@ -78,6 +79,8 @@ audio/channel_defaults={
 }
 }
 glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 

@@ -64,3 +64,20 @@ func random_lose() -> void:
 	items.remove_at(to_remove)
 	#print(get_items_string()) For testing
 	return
+	
+func get_items_string_detailed(seperator: String = ", ") -> String:
+	if items.is_empty():
+		return ""
+	var names: Array[String] = []
+	for item in items:
+		var temp: Array[String] = []
+		if item.count > 1:
+			temp.append("x%d" % item.count)
+		if item.durability != -1:
+			temp.append("Durability: %d" % item.durability)
+		
+		if temp.is_empty():
+			names.append(item.item_id)
+		else:
+			names.append("%s (%s)" % [item.item_id, ", ".join(temp)])	
+	return seperator.join(names)
