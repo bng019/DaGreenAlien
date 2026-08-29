@@ -1,0 +1,59 @@
+South Central Honeysuckle
+- Panhandle
+	set {temp_money} = range(10,51).pick_random()
+	set {Global.player_money} += {temp_money}
+	You made {temp_money} money
+	Your total money is now {Global.player_money}
+	do Global.use_action()
+- Break Into Abandoned Cars (Requires Crowbar)
+	if {Inventory.has_item("Crowbar")}:
+		set {random_chance} = range(1,100).pick_random()
+		if {random_chance} <= 50:
+			You found a catalytic converter
+			do Inventory.add_item("Catalytic_Converter")
+			do Inventory.change_durability("Crowbar", -1)
+			do Global.use_action()
+		else:
+			You found nothing
+			do Inventory.change_durability("Crowbar", -1)
+			do Global.use_action()
+	else:
+		You don't have a crowbar
+- Sleep Here
+	if {Inventory.has_item("Gun")} and {Inventory.has_item("Bullet")}:
+		You may spend 1 bullet to lower the risk
+		- Spend 1 bullet
+			set {random_chance} = range(1,100).pick_random()
+			if {random_chance} <= 80:
+				You sleep in the filthy alleyway safely. Fortunately your sleep is undisturbed and your valuables are untouched.
+				do Global.change_resolve(-10)
+				do Global.change_hunger(-10)
+				do Global.sleep()
+		- Do nothing
+			set {random_chance} = range(1,100).pick_random()
+			if {random_chance} <= 50:
+				You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched.
+				do Global.change_resolve(-15)
+				do Global.change_hunger(-15)
+				do Global.sleep()
+			elif {random_chance} > 50 and {random_chance} < 80:
+				Things go awry
+				do Global.change_resolve(-30)
+				do Global.change_hunger(-30)
+				do Global.sleep()
+			else:
+				do Global.change_resolve(-100)
+	else:
+		set {random_chance} = range(1,100).pick_random()
+		if {random_chance} <= 50:
+			You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched.
+			do Global.change_resolve(-15)
+			do Global.change_hunger(-15)
+			do Global.sleep()
+		elif {random_chance} > 50 and {random_chance} < 80:
+			Things go awry
+			do Global.change_resolve(-30)
+			do Global.change_hunger(-30)
+			do Global.sleep()
+		else:
+			do Global.change_resolve(-100)

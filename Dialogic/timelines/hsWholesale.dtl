@@ -1,0 +1,72 @@
+Honeysuckle Wholesale
+- Buy
+	- Disguise - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Disguise")
+			set {Global.player_money} -= 100
+			You have bought 1 Disguise
+		else:
+			Not enough money
+	- Saw - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Saw")
+			set {Global.player_money} -= 100
+			You have bought 1 Saw
+		else:
+			Not enough money
+	- Crowbar - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Crowbar", 1, 5)
+			set {Global.player_money} -= 100
+			You have bought 1 Crowbar
+		else:
+			Not enough money
+	- Tent - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Tent")
+			set {Global.player_money} -= 100
+			You have bought 1 Tent
+		else:
+			Not enough money
+	- Shovel - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Shovel")
+			set {Global.player_money} -= 100
+			You have bought 1 Shovel
+		else:
+			Not enough money
+	- Map - $100
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Map")
+			set {Global.player_money} -= 100
+			You have bought 1 Map
+		else:
+			Not enough money
+	- Catalytic Converter - $100 | [if {catalytic_sold} == false] [else="hide"]
+		if {Global.player_money} >= 100:
+			do Inventory.add_item("Catalytic_Converter")
+			set {Global.player_money} -= 100
+			set {catalytic_sold} = true
+			You have bought 1 Catalytic Converter
+		else:
+			Not enough money
+- Ask for Shelter - $100
+	if {Global.player_money} < 100:
+		Not enough money
+	else:
+		He gives you shelter
+		do Global.change_resolve(0)
+		do Global.change_hunger(-15)
+		do Global.sleep()
+- Rob the Store
+	if {Inventory.has_item("Gun")} and {Global.current_resolve()} <= 50.0:
+		You attempt to rob the store. With you looking disheveled and sickly, the storeowner Bill quickly notices and immediately lunges at you like a mighty tiger. He quickly disarms you and shoots you in the head. You are dead.
+	elif {Inventory.has_item("Gun")} and {Global.current_resolve()} >= 51.0:
+		Successfully rob the place
+		set {Global.player_money} += 300
+		do Inventory.add_item("Catalytic_Converter")
+		set {is_store_closed} = true
+		do Global.use_action()
+	else:
+		Great job trying to rob the store without a gun. You are dead bozo.
+		do Global.change_resolve(-100)

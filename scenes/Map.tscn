@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://b3vmo2syvk1us"]
 
 [ext_resource type="Texture2D" uid="uid://4ftlrb3je26d" path="res://assets/Map.png" id="1_5hauk"]
-[ext_resource type="Script" uid="uid://dttb5or7vwmb4" path="res://scripts/alleyway.gd" id="2_lajc7"]
-[ext_resource type="Script" uid="uid://dk80xlqxdeo3n" path="res://scripts/store.gd" id="3_xkm8s"]
+[ext_resource type="Script" uid="uid://dttb5or7vwmb4" path="res://scripts/scHoney.gd" id="2_lajc7"]
+[ext_resource type="Script" uid="uid://dk80xlqxdeo3n" path="res://scripts/hsWholesale.gd" id="3_xkm8s"]
 [ext_resource type="Script" uid="uid://jdi4vg4x8xwg" path="res://scripts/gun_store.gd" id="4_tm3qm"]
 [ext_resource type="Script" uid="uid://cvmr3lekl7gof" path="res://scripts/bar.gd" id="5_yyirk"]
 [ext_resource type="Script" uid="uid://4rheuiy80453" path="res://scripts/church.gd" id="6_41ykk"]
 [ext_resource type="Script" uid="uid://6wjg7vimrgf" path="res://scripts/storage_facility.gd" id="7_7ctrk"]
 [ext_resource type="Script" uid="uid://5x5fo6cv3gff" path="res://scripts/hospital.gd" id="8_ii6k2"]
 [ext_resource type="Script" uid="uid://7lnud8mjr82" path="res://scripts/police_station.gd" id="9_ii6k2"]
+[ext_resource type="Script" uid="uid://dylenevhwh7s3" path="res://scripts/hs_state_park.gd" id="10_46d0c"]
 
 [node name="Map" type="Node2D" unique_id=1921026271]
 
@@ -20,14 +21,14 @@ region_rect = Rect2(968.95215, 270.3238, 429.96484, 499.0067)
 
 [node name="Buildings" type="Node2D" parent="." unique_id=1956606880]
 
-[node name="Alleyway" type="TextureButton" parent="Buildings" unique_id=1395297447]
+[node name="scHoney" type="TextureButton" parent="Buildings" unique_id=1395297447]
 offset_left = 428.0
 offset_top = 100.0
 offset_right = 680.0
 offset_bottom = 288.0
 script = ExtResource("2_lajc7")
 
-[node name="Store" type="TextureButton" parent="Buildings" unique_id=2097681310]
+[node name="hsWholesale" type="TextureButton" parent="Buildings" unique_id=2097681310]
 offset_left = 343.0
 offset_top = 293.0
 offset_right = 478.0
@@ -76,11 +77,19 @@ offset_right = 771.0
 offset_bottom = 573.0
 script = ExtResource("9_ii6k2")
 
-[connection signal="pressed" from="Buildings/Alleyway" to="Buildings/Alleyway" method="_on_pressed"]
-[connection signal="pressed" from="Buildings/Store" to="Buildings/Store" method="_on_pressed"]
+[node name="hsStatePark" type="TextureButton" parent="Buildings" unique_id=448651368]
+offset_left = 526.0
+offset_top = 472.0
+offset_right = 566.0
+offset_bottom = 512.0
+script = ExtResource("10_46d0c")
+
+[connection signal="pressed" from="Buildings/scHoney" to="Buildings/scHoney" method="_on_pressed"]
+[connection signal="pressed" from="Buildings/hsWholesale" to="Buildings/hsWholesale" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/gunStore" to="Buildings/gunStore" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Bar" to="Buildings/Bar" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Church" to="Buildings/Church" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/storageFacility" to="Buildings/storageFacility" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/policeStation" to="Buildings/policeStation" method="_on_pressed"]
+[connection signal="pressed" from="Buildings/hsStatePark" to="Buildings/hsStatePark" method="_on_pressed"]

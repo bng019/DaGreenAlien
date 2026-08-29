@@ -6,10 +6,16 @@ var hunger := PlayerStats.new()
 var player_money := 50
 var player_heat := 0
 var current_location := ""
+
 var actions_left := 5
 var travels_left := 3
 var max_actions := 5
-var max_travells := 3
+var max_travels := 3
+var current_day := 1
+
+signal update_actions(actions_left: int, travels_left: int)
+signal start_day(day: int)
+signal end_day(day: int)
 
 func _ready():
 	resolve.max_value = 100 #First time run when the game starts
@@ -20,6 +26,7 @@ func _ready():
 	hunger.current = 100
 	
 	randomize()
+	start_day.emit(current_day)
 
 func change_resolve(amount: float) -> void: #Function to call in Dialogic to change resolve
 	resolve.current += amount
@@ -32,6 +39,40 @@ func current_resolve() -> float: #Function to call in Dialogic to get current re
 
 func current_hunger() -> float: #Function to call in Dialogic to get current hunger
 	return hunger.current
+	
+func can_travel() -> bool:
+	return travels_left > 0
+	
+func can_action() -> bool:
+	return actions_left > 0
 
-func change_location(new_location: String) -> void:
+func travel_to(new_location: String) -> bool:
+	if Global.current_location == new_location:
+		return true
+	elif not can_travel():
+		return false
+	travels_left -= 1
 	current_location = new_location
+	update_actions.emit(actions_left, travels_left)
+	return true
+
+func use_action() -> bool:
+	if not can_action():
+		return false
+	actions_left -= 1
+	update_actions.emit(actions_left, travels_left)
+	if actions_left <= 0:
+		call_deferred("sleep")
+	return true
+
+func sleep() -> void:
+	end_day.emit(current_day)
+	
+	current_day += 1
+	actions_left = max_actions
+	travels_left = max_travels
+	
+	update_actions.emit(actions_left, travels_left)
+	start_day.emit(current_day)
+	
+	Dialogic.start("newDay")

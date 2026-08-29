@@ -2,12 +2,10 @@ extends Node #Inventory script
 
 signal item_added(item_id: String)
 signal item_removed(item_id: String)
+signal item_broke(item_id: String)
+signal item_durability_change(item_id: String, durability: int)
 
 var items: Array[ItemInstance] = []
-
-var item_prices := {
-	"Crowbar": 15,
-}
 
 func add_item(item_id: String, amount: int = 1, durability: int = -1) -> void: #Add item function, call is Inventory.add_item("Crowbar, 1, 50"). 1 Crowbar of 50 durability. Inventory.add_item("Crowbar") adds one Crowbar and doesn't track durability
 	var existing := _find_item(item_id)
@@ -33,13 +31,6 @@ func sell_item(item_id: String, amount: int = 1) -> void:
 	var existing := _find_item(item_id)
 	if not existing or existing.count < amount:
 		return
-	
-	if not item_prices.has(item_id):
-		push_warning("Cannot sell item")
-		
-	var total_price: int = item_prices[item_id] * amount
-	remove_item(item_id, amount)
-	Global.player_money += total_price
 
 func get_items_string() -> String:
 	if items.is_empty():
@@ -64,3 +55,17 @@ func random_lose() -> void:
 	items.remove_at(to_remove)
 	#print(get_items_string()) For testing
 	return
+	
+func change_durability(item_id: String, amount: int = 1) -> void:
+	var existing := _find_item(item_id)
+	if not existing:
+		return
+	if existing.durability == -1:
+		return
+	
+	existing.durability += amount
+	item_durability_change.emit(item_id, existing.durability)
+	
+	if existing.durability <= 0:
+		items.erase(existing)
+		item_broke.emit(item_id)

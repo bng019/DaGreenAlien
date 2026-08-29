@@ -30,16 +30,20 @@ directories/dtl_directory={
 "died": "res://Dialogic/timelines/died.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
+"hsStatePark": "res://Dialogic/timelines/hsStatePark.dtl",
+"hsWholesale": "res://Dialogic/timelines/hsWholesale.dtl",
+"newDay": "res://Dialogic/timelines/newDay.dtl",
 "outOfTravels": "res://Dialogic/timelines/outOfTravels.dtl",
 "policeStation": "res://Dialogic/timelines/policeStation.dtl",
-"shadyAlleyway": "res://Dialogic/timelines/shadyAlleyway.dtl",
+"scHoney": "res://Dialogic/timelines/scHoney.dtl",
 "storageFacility": "res://Dialogic/timelines/storageFacility.dtl",
-"store": "res://Dialogic/timelines/store.dtl",
-"storeClosed": "res://Dialogic/timelines/storeClosed.dtl"
+"storeClosed": "res://Dialogic/timelines/storeClosed.dtl",
+"win": "res://Dialogic/timelines/win.dtl"
 }
 layout/style_directory={}
 variables={
 "catalytic_sold": false,
+"catalytics_used": 0,
 "is_catholic": false,
 "is_store_closed": false,
 "random_chance": 0,
