@@ -33,3 +33,5 @@ Shady Alleyway
 			Things go awry
 		else:
 			do Global.change_resolve(-100)
+- End the day
+	{RandomEvents.roll_event()}

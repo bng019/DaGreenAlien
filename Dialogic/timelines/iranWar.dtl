@@ -1,0 +1,12 @@
+You see breaking news from the TVs at a storefront. The Strait of something has been bombed for the umpteenth time or something.
+Everyone has to do their part. A tax man has come over to collect.
+- Do your part and fess up
+	The tax man thanks you profusely. He promises you this will be the last time.
+	You have no reason to doubt him.
+	do Global.change_money(-5)
+	Your current money is: {Global.current_money()}
+- What? Why? I didn't ask for this!!
+	The tax man slaps you and says you are unpatriotic.
+	You feel the sting of treachery and shame upon your cheek.
+	do Global.change_resolve(-1)
+	Your current resolve is: {Global.current_resolve()}

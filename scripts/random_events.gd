@@ -5,6 +5,8 @@ var events:= [
 	"well_rested",
 	"gain_money",
 	"lose_money",
+	"nothing_happens",
+	"money_fairy"
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -22,17 +24,27 @@ func roll_event():
 	match event_id:
 		"iran_war":
 			# increase prices by x%
+			Dialogic.start("iranWar")
 			pass
 		"well_rested":
-			# hardcode next day's available actions to 6
+			# hardcode next day's available actions to 6 instead of 5
+			Global.actions_left = 6
+			Dialogic.start("extraAction")
 			pass
 		"gain_money":
 			# gain a random amount
+			Global.change_money(5)
+			Dialogic.start("gainMoney")
 			pass
 		"lose_money":
 			# lose a random amount
+			Global.change_money(-5)
+			Dialogic.start("loseMoney")
 			pass
 		"nothing_happens":
 			# nothing ever happens
+			Dialogic.start("nothingEverHappens")
 			pass
+		"money_fairy":
+			Dialogic.start("moneyFairy")
 	return
