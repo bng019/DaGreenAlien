@@ -1,32 +1,34 @@
 Steve’s Tabernacle
-- Get a Mixed Drink - $XXX
-	if {Global.player_money} >= 100:
-		do Inventory.add_item("Mixed_Drink")
-	else:
-		Not enough money
-- Buy Galaxy Gas - $XXX
-	if {Global.player_money} >= 100:
-		do Inventory.add_item("Galaxy_Gas")
-	else:
-		Not enough money
+- Coin flip for the catalytic converter - $20 a try | [if {catalytic_sold} == false] [else="hide"]
+	set {Global.player_money} -= 20
+	Call it
+	- Heads
+		if {Global.coinflip()} == true:
+			It is...
+			Heads! Congrats!
+			You get a catalytic converter
+			do Inventory.add_item("Catalytic_Converter")
+			set {catalytic_sold} = true
+		else:
+			It is...
+			Tails! You lose!
+	- Tails
+		if {Global.coinflip()} == true:
+			It is..
+			Congrats! you won!
+			You get a catalytic converter
+			do Inventory.add_item("Catalytic_Converter")
+			set {catalytic_sold} = true
+		else:
+			It is...
+			Heads! You lose!
 - Ask for Shelter
-	if {Global.is_catholic} == false:
-		Yes
+	if {Global.is_catholic()} == true:
+		You have a few drinks and you let it spill that you are now Catholic. The bartender insists you donate to the needy, for he is part of the needy.
+		You lose 15 money
+		set {Global.player_money} -= 15
 	else:
-		No
-- Flirt with Stacey
-	if {Inventory.has_item("Cowboy_Disguise")}:
-		Now have access to Stacey’s House
-	else:
-		No
-- Ask the Bartender for Information - $XXX or Drink Mix
-	- $XXX
-		if {Global.player_money} >= 100:
-			Yes
-		else:
-			Not enough money
-	- Give Drink Mix
-		if {Inventory.has_item("Drink_Mix")}:
-			Yes
-		else:
-			You don't have a Drink Mix
+		You have a few drinks and you things get a little rowdy...
+		You wake up with bloody knuckles and a bruise on your face
+		You lose 15 resolve
+		do Global.change_resolve(-15)
