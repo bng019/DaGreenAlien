@@ -2,17 +2,17 @@ extends Node #Inventory script
 
 signal item_added(item_id: String)
 signal item_removed(item_id: String)
+signal item_broke(item_id: String)
+signal item_durability_change(item_id: String, durability: int)
 
 var items: Array[ItemInstance] = []
 
-var item_prices := {
-	"Crowbar": 15,
-}
-
 func add_item(item_id: String, amount: int = 1, durability: int = -1) -> void: #Add item function, call is Inventory.add_item("Crowbar, 1, 50"). 1 Crowbar of 50 durability. Inventory.add_item("Crowbar") adds one Crowbar and doesn't track durability
 	var existing := _find_item(item_id)
-	if existing and durability == -1:
+	if existing:
 		existing.count += amount
+		if durability != -1 and existing.durability == -1:
+			existing.durability = durability
 	else:
 		items.append(ItemInstance.new(item_id, amount, durability))
 	item_added.emit(item_id)
@@ -33,13 +33,6 @@ func sell_item(item_id: String, amount: int = 1) -> void:
 	var existing := _find_item(item_id)
 	if not existing or existing.count < amount:
 		return
-	
-	if not item_prices.has(item_id):
-		push_warning("Cannot sell item")
-		
-	var total_price: int = item_prices[item_id] * amount
-	remove_item(item_id, amount)
-	Global.player_money += total_price
 
 func get_items_string() -> String:
 	if items.is_empty():
@@ -81,3 +74,25 @@ func get_items_string_detailed(seperator: String = ", ") -> String:
 		else:
 			names.append("%s (%s)" % [item.item_id, ", ".join(temp)])	
 	return seperator.join(names)
+func change_durability(item_id: String, amount: int = 1) -> int:
+	var existing := _find_item(item_id)
+	if not existing:
+		return -1
+	if existing.durability == -1:
+		return -1
+	
+	existing.durability += amount
+	item_durability_change.emit(item_id, existing.durability)
+	var new_durability := existing.durability
+	
+	if existing.durability <= 0:
+		items.erase(existing)
+		item_broke.emit(item_id)
+		
+	return new_durability
+
+func get_item_durability(item_id: String) -> int:
+	var existing := _find_item(item_id)
+	if not existing:
+		return -1
+	return existing.durability

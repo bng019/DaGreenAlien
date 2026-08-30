@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*uid://cijwexwimihnt"
 Dialogic="*uid://ds2q0uclmolvu"
 Inventory="*uid://bfieqygqvyk0y"
+MainMenu="*uid://1d1n0d5peuh2"
 
 [dialogic]
 
@@ -31,20 +32,27 @@ directories/dtl_directory={
 "displayInvo": "res://Dialogic/timelines/displayInvo.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
+"hsStatePark": "res://Dialogic/timelines/hsStatePark.dtl",
+"hsTown": "res://Dialogic/timelines/hsTown.dtl",
+"hsWholesale": "res://Dialogic/timelines/hsWholesale.dtl",
+"newDay": "res://Dialogic/timelines/newDay.dtl",
 "outOfTravels": "res://Dialogic/timelines/outOfTravels.dtl",
 "policeStation": "res://Dialogic/timelines/policeStation.dtl",
-"shadyAlleyway": "res://Dialogic/timelines/shadyAlleyway.dtl",
-"storageFacility": "res://Dialogic/timelines/storageFacility.dtl",
-"store": "res://Dialogic/timelines/store.dtl",
-"storeClosed": "res://Dialogic/timelines/storeClosed.dtl"
+"scHoney": "res://Dialogic/timelines/scHoney.dtl",
+"storeClosed": "res://Dialogic/timelines/storeClosed.dtl",
+"win": "res://Dialogic/timelines/win.dtl"
 }
 layout/style_directory={}
 variables={
+"catalytic_found": false,
 "catalytic_sold": false,
+"catalytics_used": 0,
+"crowbar_durability": 5,
 "is_catholic": false,
 "is_store_closed": false,
 "random_chance": 0,
-"temp_money": 0
+"temp_money": 0,
+"temp_resolve_loss": 0
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

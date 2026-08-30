@@ -1,8 +1,7 @@
 extends TextureButton
 
 func _on_pressed():
-	if Global.travels_left > 0:
+	if Global.travel_to("gunStore"):
 		Dialogic.start("gunStore")
-		Global.travels_left -= 1
 	else:
 		Dialogic.start("outOfTravels")

@@ -1,80 +1,73 @@
 [gd_scene format=3 uid="uid://b3vmo2syvk1us"]
 
-[ext_resource type="Texture2D" uid="uid://4ftlrb3je26d" path="res://assets/Map.png" id="1_5hauk"]
-[ext_resource type="Script" uid="uid://dttb5or7vwmb4" path="res://scripts/alleyway.gd" id="2_lajc7"]
-[ext_resource type="Script" uid="uid://dk80xlqxdeo3n" path="res://scripts/store.gd" id="3_xkm8s"]
+[ext_resource type="Texture2D" uid="uid://1myu3mstnklt" path="res://assets/Full_map.png" id="1_46d0c"]
+[ext_resource type="Script" uid="uid://dttb5or7vwmb4" path="res://scripts/scHoney.gd" id="2_lajc7"]
+[ext_resource type="Script" uid="uid://dk80xlqxdeo3n" path="res://scripts/hsWholesale.gd" id="3_xkm8s"]
 [ext_resource type="Script" uid="uid://jdi4vg4x8xwg" path="res://scripts/gun_store.gd" id="4_tm3qm"]
 [ext_resource type="Script" uid="uid://cvmr3lekl7gof" path="res://scripts/bar.gd" id="5_yyirk"]
 [ext_resource type="Script" uid="uid://4rheuiy80453" path="res://scripts/church.gd" id="6_41ykk"]
-[ext_resource type="Script" uid="uid://6wjg7vimrgf" path="res://scripts/storage_facility.gd" id="7_7ctrk"]
 [ext_resource type="Script" uid="uid://5x5fo6cv3gff" path="res://scripts/hospital.gd" id="8_ii6k2"]
 [ext_resource type="Script" uid="uid://7lnud8mjr82" path="res://scripts/police_station.gd" id="9_ii6k2"]
 [ext_resource type="Script" uid="uid://r21rleuskcb0" path="res://scripts/display_invo.gd" id="10_46d0c"]
+[ext_resource type="Script" uid="uid://dylenevhwh7s3" path="res://scripts/hs_state_park.gd" id="10_46d0c"]
+[ext_resource type="Script" uid="uid://ckd2sd7pkhmcj" path="res://scripts/hs_town.gd" id="10_d46yu"]
 
 [node name="Map" type="Node2D" unique_id=1921026271]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1215325020]
-position = Vector2(557, 324)
-texture = ExtResource("1_5hauk")
-region_enabled = true
-region_rect = Rect2(968.95215, 270.3238, 429.96484, 499.0067)
+[node name="FullMap" type="Sprite2D" parent="." unique_id=1827467102]
+position = Vector2(576, 323.99997)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_46d0c")
 
 [node name="Buildings" type="Node2D" parent="." unique_id=1956606880]
 
-[node name="Alleyway" type="TextureButton" parent="Buildings" unique_id=1395297447]
-offset_left = 428.0
-offset_top = 100.0
-offset_right = 680.0
-offset_bottom = 288.0
+[node name="scHoney" type="TextureButton" parent="Buildings" unique_id=1395297447]
+offset_left = 250.0
+offset_top = 427.0
+offset_right = 477.0
+offset_bottom = 542.0
 script = ExtResource("2_lajc7")
 
-[node name="Store" type="TextureButton" parent="Buildings" unique_id=2097681310]
-offset_left = 343.0
-offset_top = 293.0
-offset_right = 478.0
-offset_bottom = 386.0
+[node name="hsWholesale" type="TextureButton" parent="Buildings" unique_id=2097681310]
+offset_left = 734.0
+offset_top = 65.0
+offset_right = 839.0
+offset_bottom = 177.0
 script = ExtResource("3_xkm8s")
 
 [node name="gunStore" type="TextureButton" parent="Buildings" unique_id=1142812001]
-offset_left = 706.0
-offset_top = 230.0
-offset_right = 746.0
-offset_bottom = 270.0
+offset_left = 558.0
+offset_top = 488.0
+offset_right = 673.0
+offset_bottom = 583.0
 script = ExtResource("4_tm3qm")
 
 [node name="Bar" type="TextureButton" parent="Buildings" unique_id=224832880]
-offset_left = 471.0
-offset_top = 365.0
-offset_right = 511.0
-offset_bottom = 405.0
+offset_left = 867.0
+offset_top = 124.0
+offset_right = 983.0
+offset_bottom = 236.0
 script = ExtResource("5_yyirk")
 
 [node name="Church" type="TextureButton" parent="Buildings" unique_id=941410555]
-offset_left = 343.0
-offset_top = 450.0
-offset_right = 383.0
-offset_bottom = 490.0
+offset_left = 211.0
+offset_top = 231.0
+offset_right = 353.0
+offset_bottom = 376.0
 script = ExtResource("6_41ykk")
 
-[node name="storageFacility" type="TextureButton" parent="Buildings" unique_id=891400539]
-offset_left = 343.0
-offset_top = 533.0
-offset_right = 383.0
-offset_bottom = 573.0
-script = ExtResource("7_7ctrk")
-
 [node name="Hospital" type="TextureButton" parent="Buildings" unique_id=1756606310]
-offset_left = 665.0
-offset_top = 533.0
-offset_right = 705.0
-offset_bottom = 573.0
+offset_left = 837.0
+offset_top = 283.0
+offset_right = 1031.0
+offset_bottom = 385.0
 script = ExtResource("8_ii6k2")
 
 [node name="policeStation" type="TextureButton" parent="Buildings" unique_id=1403832876]
-offset_left = 731.0
-offset_top = 533.0
-offset_right = 771.0
-offset_bottom = 573.0
+offset_left = 779.0
+offset_top = 419.0
+offset_right = 895.0
+offset_bottom = 506.0
 script = ExtResource("9_ii6k2")
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1632680594]
@@ -85,12 +78,27 @@ offset_right = 11.0
 offset_bottom = 12.0
 script = ExtResource("10_46d0c")
 
-[connection signal="pressed" from="Buildings/Alleyway" to="Buildings/Alleyway" method="_on_pressed"]
-[connection signal="pressed" from="Buildings/Store" to="Buildings/Store" method="_on_pressed"]
+[node name="hsStatePark" type="TextureButton" parent="Buildings" unique_id=448651368]
+offset_left = 211.0
+offset_top = 91.0
+offset_right = 445.0
+offset_bottom = 224.0
+script = ExtResource("10_46d0c")
+
+[node name="hsTown" type="TextureButton" parent="Buildings" unique_id=946353417]
+offset_left = 554.0
+offset_top = 239.0
+offset_right = 670.0
+offset_bottom = 353.0
+script = ExtResource("10_d46yu")
+
+[connection signal="pressed" from="Buildings/scHoney" to="Buildings/scHoney" method="_on_pressed"]
+[connection signal="pressed" from="Buildings/hsWholesale" to="Buildings/hsWholesale" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/gunStore" to="Buildings/gunStore" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Bar" to="Buildings/Bar" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Church" to="Buildings/Church" method="_on_pressed"]
-[connection signal="pressed" from="Buildings/storageFacility" to="Buildings/storageFacility" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/policeStation" to="Buildings/policeStation" method="_on_pressed"]
 [connection signal="pressed" from="Inventory/Check Inventory" to="Inventory/Check Inventory" method="_on_pressed"]
+[connection signal="pressed" from="Buildings/hsStatePark" to="Buildings/hsStatePark" method="_on_pressed"]
+[connection signal="pressed" from="Buildings/hsTown" to="Buildings/hsTown" method="_on_pressed"]
