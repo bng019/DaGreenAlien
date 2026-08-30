@@ -1,0 +1,16 @@
+Your prayers have been answered!
+The money fairy, is in fact, a real thing! It appears next to you and interrupts your beauty sleep.
+It claims it didn't find anything in under your pillow (or whatever you are using that resembles one)
+5 dollars is required, says the fairy. What do you do?
+- Pay up the bill
+	if {Global.current_money()} >= 5:
+		5 dollars is a lot, but the fairy excitingly passes you a tooth.
+		Where did she get this from??
+		do Global.change_money(-5)
+		do Inventory.add_item("Tooth")
+	else:
+		You check your pockets, but you don't have the money.
+		The money fairy laughs at how broke you are.
+- I can buy a NcValue meal with that 5 dollars, no thanks
+	The fairy appears disappointed, and walks away.
+	You see it pass a nearby NcBonalds.

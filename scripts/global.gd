@@ -35,3 +35,9 @@ func current_hunger() -> float: #Function to call in Dialogic to get current hun
 
 func change_location(new_location: String) -> void:
 	current_location = new_location
+
+func change_money(amount: float) -> void: #Function to call in Dialogic to change money
+	player_money += amount
+	
+func current_money() -> float: #Function to call in Dialogic to get current money
+	return player_money
