@@ -13,6 +13,9 @@ func _process(delta):
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/Map.tscn")
+	
+func go_main_menu():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_options_pressed():

@@ -1,0 +1,53 @@
+Honeysuckle State Park
+- Fix Spaceship
+	if {Inventory.has_item("Catalytic_Converter")}:
+		Would you like to spend a catalytic converter to go towards fixing your spaceship?
+		- Yes
+			if {Inventory.has_item("Catalytic_Converter")}:
+				You use a catalytic converter to go towards fixing your spaceship.
+				do Inventory.remove_item("Catalytic_Converter")
+				set {catalytics_used} += 1
+				if {catalytics_used} >= 2:
+					do Dialogic.start("win")
+				do Global.use_action()
+		- No
+	else:
+		You don't have a catalytic converter
+- Sleep (Requires Tent)
+	if {Inventory.has_item("Tent")}:
+		Would you like to sleep here?
+		- Yes
+			if {Inventory.has_item("Tent")}:
+				You sleep in the park in your tent.
+				do Global.change_resolve(-10)
+				do Global.change_hunger(-10)
+				do Global.sleep()
+		- No
+	else:
+		You don't have a tent
+- Dig for Treasure (Requires Shovel and Map)
+	if {Inventory.has_item("Shovel")} and {Inventory.has_item("Map")}:
+		Would you like to dig for treasure?
+		- Yes
+			if {Inventory.has_item("Shovel")} and {Inventory.has_item("Map")}:
+				set {random_chance} = range(1,100).pick_random()
+				if {random_chance} <= 30:
+					You found nothing
+					do Global.use_action()
+				elif {random_chance} >= 31 and {random_chance} <= 60:
+					set {temp_money} = range(5,26).pick_random()
+					set {Global.player_money} += {temp_money}
+					You found {temp_money} money
+					Your total money is now {Global.player_money}
+					do Global.use_action()
+				elif {random_chance} >= 61 and {random_chance} <= 90:
+					do Inventory.add_item("Food")
+					You found food
+					do Global.use_action()
+				elif {random_chance} >= 91:
+					do Inventory.add_item("Catalytic_Converter")
+					You found a Catalytic Converter
+					do Global.use_action()
+		- No
+	else:
+		You don't have the required items
