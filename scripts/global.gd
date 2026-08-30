@@ -45,6 +45,10 @@ func can_travel() -> bool:
 	
 func can_action() -> bool:
 	return actions_left > 0
+	
+func can_action2() -> bool:
+	return actions_left > 1
+
 
 func travel_to(new_location: String) -> bool:
 	if Global.current_location == new_location:

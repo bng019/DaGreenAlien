@@ -1,1 +1,2 @@
 You died
+do MainMenu.go_main_menu()

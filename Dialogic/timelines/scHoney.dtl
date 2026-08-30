@@ -1,21 +1,28 @@
 South Central Honeysuckle
 - Panhandle
-	set {temp_money} = range(10,51).pick_random()
+	do Inventory.add_item("Crowbar", 1, 5)
+	set {temp_money} = range(5,21).pick_random()
 	set {Global.player_money} += {temp_money}
 	You made {temp_money} money
 	Your total money is now {Global.player_money}
 	do Global.use_action()
-- Break Into Abandoned Cars (Requires Crowbar)
+- Break Into Abandoned Cars (Requires Crowbar) | [if {catalytic_found} == false] [else="hide"]
 	if {Inventory.has_item("Crowbar")}:
 		set {random_chance} = range(1,100).pick_random()
 		if {random_chance} <= 50:
 			You found a catalytic converter
 			do Inventory.add_item("Catalytic_Converter")
-			do Inventory.change_durability("Crowbar", -1)
+			set {catalytic_found} = true
+			set {crowbar_durability} = Inventory.change_durability("Crowbar", -1)
+			if {crowbar_durability} <= 0:
+				Your crowbar breaks
+			else:
+				Your crowbar has {crowbar_durability} durability left
 			do Global.use_action()
 		else:
 			You found nothing
 			do Inventory.change_durability("Crowbar", -1)
+			Your crowbar has {Inventory.get_item_durability("Crowbar")} durability left
 			do Global.use_action()
 	else:
 		You don't have a crowbar

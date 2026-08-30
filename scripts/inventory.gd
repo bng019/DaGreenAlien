@@ -9,8 +9,10 @@ var items: Array[ItemInstance] = []
 
 func add_item(item_id: String, amount: int = 1, durability: int = -1) -> void: #Add item function, call is Inventory.add_item("Crowbar, 1, 50"). 1 Crowbar of 50 durability. Inventory.add_item("Crowbar") adds one Crowbar and doesn't track durability
 	var existing := _find_item(item_id)
-	if existing and durability == -1:
+	if existing:
 		existing.count += amount
+		if durability != -1 and existing.durability == -1:
+			existing.durability = durability
 	else:
 		items.append(ItemInstance.new(item_id, amount, durability))
 	item_added.emit(item_id)
@@ -56,16 +58,25 @@ func random_lose() -> void:
 	#print(get_items_string()) For testing
 	return
 	
-func change_durability(item_id: String, amount: int = 1) -> void:
+func change_durability(item_id: String, amount: int = 1) -> int:
 	var existing := _find_item(item_id)
 	if not existing:
-		return
+		return -1
 	if existing.durability == -1:
-		return
+		return -1
 	
 	existing.durability += amount
 	item_durability_change.emit(item_id, existing.durability)
+	var new_durability := existing.durability
 	
 	if existing.durability <= 0:
 		items.erase(existing)
 		item_broke.emit(item_id)
+		
+	return new_durability
+
+func get_item_durability(item_id: String) -> int:
+	var existing := _find_item(item_id)
+	if not existing:
+		return -1
+	return existing.durability

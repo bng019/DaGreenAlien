@@ -1,0 +1,73 @@
+Honeysuckle Lane
+- Do odd jobs (Uses 2 actions)
+	if Global.can_action2():
+		if {Inventory.has_item("Saw")}:
+			Your saw helps with your work
+			set {temp_money} = range(20,81).pick_random()
+			set {Global.player_money} += {temp_money}
+			You made {temp_money} money
+			Your total money is now {Global.player_money}
+			do Global.use_action()
+			do Global.use_action()
+		else:
+			set {temp_money} = range(10,51).pick_random()
+			set {Global.player_money} += {temp_money}
+			You made {temp_money} money
+			Your total money is now {Global.player_money}
+			do Global.use_action()
+			do Global.use_action()
+	else:
+		You don't have enough actions
+- Knock at a random house and ask the resident to let you stay the night.
+	label reroll_start
+	set {random_chance} = range(1,100).pick_random()
+	if {random_chance} <= 20:
+		Placeholder person flavor text
+		- Stay
+		- Leave
+		- Reroll (Costs 1 action)
+			jump reroll_start
+	if {random_chance} >= 21 and {random_chance} <= 40:
+		Placeholder person flavor text
+		- Stay
+		- Leave
+		- Reroll (Costs 1 action)
+			jump reroll_start
+	if {random_chance} >= 41 and {random_chance} <= 60:
+		Placeholder person flavor text
+		- Stay
+		- Leave
+		- Reroll (Costs 1 action)
+			jump reroll_start
+	if {random_chance} >= 61 and {random_chance} <= 80:
+		Placeholder person flavor text
+		- Stay
+		- Leave
+		- Reroll (Costs 1 action)
+			jump reroll_start
+	if {random_chance} >= 81 and {random_chance} <= 100:
+		Placeholder person flavor text
+		- Stay
+		- Leave
+		- Reroll (Costs 1 action)
+			jump reroll_start
+- Break into a house and rob it (Requires crowbar)
+	if {Inventory.has_item("Crowbar")}:
+		set {random_chance} = range(1,100).pick_random()
+		if {random_chance} <= 50:
+			set {temp_money} = range(20,81).pick_random()
+			set {Global.player_money} += {temp_money}
+			You stole {temp_money} money
+			Your total money is now {Global.player_money}
+			set {temp_resolve_loss} = range(1,10).pick_random()
+			set {Global.current_resolve()} -= {temp_resolve_loss}
+			You lost {temp_resolve_loss} resolve
+			Your total resolve is now {Global.current_resolve()}
+			set {crowbar_durability} = Inventory.change_durability("Crowbar", -1)
+				if {crowbar_durability} <= 0:
+					Your crowbar breaks
+				else:
+					Your crowbar has {crowbar_durability} durability left
+				do Global.use_action()
+	else:
+		You don't have a crowbar
