@@ -19,6 +19,7 @@ Our Lady of Guadalupe Catholic Church
 			do Inventory.add_item("Catalytic_Converter")
 			set {catalytic_found_church} = true
 			do Global.use_action()
+			set {Global.catholic} = true
 		- No
 			The priest glances at you disgustingly. “Leave this house of God immediately!
 - Ask for Shelter

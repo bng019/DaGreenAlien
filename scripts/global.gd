@@ -12,6 +12,7 @@ var travels_left := 3
 var max_actions := 5
 var max_travels := 3
 var current_day := 1
+var catholic := false
 
 signal update_actions(actions_left: int, travels_left: int)
 signal start_day(day: int)
@@ -88,3 +89,10 @@ func sleep() -> void:
 	start_day.emit(current_day)
 	
 	Dialogic.start("newDay")
+	
+func coinflip() -> bool:
+	var result = randi_range(0, 1)
+	return result != 0
+	
+func is_catholic() -> bool:
+	return catholic
