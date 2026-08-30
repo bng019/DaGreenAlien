@@ -32,35 +32,30 @@ South Central Honeysuckle
 		- Spend 1 bullet
 			set {random_chance} = range(1,100).pick_random()
 			if {random_chance} <= 80:
-				You sleep in the filthy alleyway safely. Fortunately your sleep is undisturbed and your valuables are untouched.
+				You sleep in the filthy alleyway safely. Fortunately your sleep is undisturbed and your valuables are untouched.  However, you feel like you lost a bit of resolve.
 				do Global.change_resolve(-10)
-				do Global.change_hunger(-10)
 				do Global.sleep()
 		- Do nothing
 			set {random_chance} = range(1,100).pick_random()
 			if {random_chance} <= 50:
-				You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched.
+				You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched. However, you feel like you lost a bit of resolve.
 				do Global.change_resolve(-15)
-				do Global.change_hunger(-15)
 				do Global.sleep()
 			elif {random_chance} > 50 and {random_chance} < 80:
-				Things go awry
+				Things go awry. You feel like you lost a moderate amount of resolve.
 				do Global.change_resolve(-30)
-				do Global.change_hunger(-30)
 				do Global.sleep()
 			else:
 				do Global.change_resolve(-100)
 	else:
 		set {random_chance} = range(1,100).pick_random()
 		if {random_chance} <= 50:
-			You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched.
+			You sleep in the filthy alleyway. Fortunately your sleep is undisturbed and your valuables are untouched. However, you feel like you lost a bit of resolve.
 			do Global.change_resolve(-15)
-			do Global.change_hunger(-15)
 			do Global.sleep()
 		elif {random_chance} > 50 and {random_chance} < 80:
-			Things go awry
+			Things go awry. You feel like you lost a moderate amount of resolve.
 			do Global.change_resolve(-30)
-			do Global.change_hunger(-30)
 			do Global.sleep()
 		else:
 			do Global.change_resolve(-100)

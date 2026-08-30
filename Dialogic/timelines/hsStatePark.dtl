@@ -1,13 +1,13 @@
 Honeysuckle State Park
 - Fix Spaceship
 	if {Inventory.has_item("Catalytic_Converter")}:
-		Would you like to spend a catalytic converter to go towards fixing your spaceship?
+		Would you like to spend a catalytic converter to go towards fixing your spaceship? You need 7 total to win.
 		- Yes
 			if {Inventory.has_item("Catalytic_Converter")}:
 				You use a catalytic converter to go towards fixing your spaceship.
 				do Inventory.remove_item("Catalytic_Converter")
 				set {catalytics_used} += 1
-				if {catalytics_used} >= 2:
+				if {catalytics_used} >= 7:
 					do Dialogic.start("win")
 				do Global.use_action()
 		- No
@@ -19,8 +19,7 @@ Honeysuckle State Park
 		- Yes
 			if {Inventory.has_item("Tent")}:
 				You sleep in the park in your tent.
-				do Global.change_resolve(-10)
-				do Global.change_hunger(-10)
+				do Global.change_resolve(0)
 				do Global.sleep()
 		- No
 	else:
@@ -41,8 +40,8 @@ Honeysuckle State Park
 					Your total money is now {Global.player_money}
 					do Global.use_action()
 				elif {random_chance} >= 61 and {random_chance} <= 90:
-					do Inventory.add_item("Food")
-					You found food
+					You found food which restores some hunger
+					do Global.change_hunger(20)
 					do Global.use_action()
 				elif {random_chance} >= 91:
 					do Inventory.add_item("Catalytic_Converter")

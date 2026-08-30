@@ -1,0 +1,27 @@
+HappyWasp Restaurant
+- Grab Food - $20
+	if {Global.player_money} >= 20:
+		Would you like to eat?
+		- Yes
+			do Global.set_hunger_to_max()
+			set {Global.player_money} -= 20
+			Your hunger has been filled
+			do Global.use_action()
+		- No
+	else:
+		You don't have enough money
+- Work a shift
+	You work as a waiter for the restaurant
+	set {temp_money} = range(40,71).pick_random()
+	set {Global.player_money} += {temp_money}
+	You made {temp_money} money
+	Your total money is now {Global.player_money}
+	do {shifts_worked} += 1
+	if {shifts_worked} == 5:
+		The manager notices your hard work.
+		They reward you with a catalytic converter from the back!
+		do Inventory.add_item("Catalytic_Converter")
+	do Global.use_action()
+- Sleep
+	You decided to lock yourself in the bathroom and sleep.
+	do Global.sleep()

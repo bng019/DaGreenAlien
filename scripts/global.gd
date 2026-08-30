@@ -37,6 +37,12 @@ func change_hunger(amount: float) -> void: #Function to call in Dialogic to chan
 
 func current_resolve() -> float: #Function to call in Dialogic to get current resolve
 	return resolve.current
+	
+func set_resolve_to_max() -> void:
+	resolve.current = resolve.max_value
+	
+func set_hunger_to_max() -> void:
+	hunger.current = hunger.max_value
 
 func current_hunger() -> float: #Function to call in Dialogic to get current hunger
 	return hunger.current
@@ -76,6 +82,8 @@ func sleep() -> void:
 	current_day += 1
 	actions_left = max_actions
 	travels_left = max_travels
+	
+	change_hunger(-20)
 	
 	update_actions.emit(actions_left, travels_left)
 	start_day.emit(current_day)

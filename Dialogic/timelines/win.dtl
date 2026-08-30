@@ -1,1 +1,2 @@
-You have won the game!
+You repaired your spaceship and were able to go back home!
+do MainMenu.go_main_menu()

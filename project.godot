@@ -31,6 +31,7 @@ directories/dtl_directory={
 "died": "res://Dialogic/timelines/died.dtl",
 "displayInvo": "res://Dialogic/timelines/displayInvo.dtl",
 "gunStore": "res://Dialogic/timelines/gunStore.dtl",
+"happyWasp": "res://Dialogic/timelines/happyWasp.dtl",
 "hospital": "res://Dialogic/timelines/hospital.dtl",
 "hsStatePark": "res://Dialogic/timelines/hsStatePark.dtl",
 "hsTown": "res://Dialogic/timelines/hsTown.dtl",
@@ -45,6 +46,7 @@ directories/dtl_directory={
 layout/style_directory={}
 variables={
 "catalytic_found": false,
+"catalytic_found_hospital": false,
 "catalytic_sold": false,
 "catalytic_sold_bar": false,
 "catalytic_sold_gun": false,
@@ -54,6 +56,7 @@ variables={
 "is_catholic": false,
 "is_store_closed": false,
 "random_chance": 0,
+"shifts_worked": 0,
 "temp_money": 0,
 "temp_resolve_loss": 0
 }
