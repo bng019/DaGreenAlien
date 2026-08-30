@@ -1,2 +1,24 @@
-National City Police Station
-- Make a False Police Report
+Honeysuckle Police Station
+- Rob evidence room (requires gun) | [if {catalytic_sold_police} == false] [else="hide"]
+	if {Inventory.has_item("Gun")} == true:
+		You rob the police station. Things go pretty okay
+		You find a catalytic converter and pocket a cool vintage looking gun
+		do Inventory.add_item("Vintage_Gun")
+		do Inventory.add_item("Catalytic_Converter")
+		set {catalytic_sold_police} = true
+	else:
+		You have nothing to rob with! You fool!
+- Bribe police for a vintage gun - $100 | [if {catalytic_sold_police} == false] [else="hide"]
+	if {Global.player_money} >= 100:
+		The policeman appreicates the tip. He decides to give you a catalytic converter as a bonus
+		do Inventory.add_item("Vintage_Gun")
+		do Inventory.add_item("Catalytic_Converter")
+		set {Global.player_money} -= 100
+		set {catalytic_sold_police} = true
+	else:
+		The policeman laughs at your pitiful attempt to bribe him.
+- Ask for shelter
+	To meet quota you are thrown into the slammer
+	You you lose 20 money
+	set {Global.player_money} -= 20
+	do Global.sleep()

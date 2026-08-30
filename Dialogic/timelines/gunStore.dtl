@@ -11,16 +11,31 @@ Freedom Supplier
 		else:
 			Not enough money
 	- Ammo - $10
-		if {Inventory.has_item("Gun")} and {Inventory.player_money} >= 10:
+		if {Inventory.has_item("Gun")} and {Global.player_money} >= 10:
 			do Inventory.add_item("Bullet")
 		elif {!Inventory.has_item("Gun")}:
 			What are you gonna do with just a bullet?? Buy a gun first!
-		elif {Inventory.has_item("Gun")} and {Inventory.player_money} < 10:
+		elif {Inventory.has_item("Gun")} and {Global.player_money} < 10:
 			Not enough money
-
+- Ask for catalytic converter | [if {catalytic_sold_gun} == false] [else="hide"]
+	Vincenzo, the gun store owner, says he's winning to part with his own if you can find him a vintage gun
+	- Commence the trade
+		if {Inventory.has_item("Vintage_Gun")}:
+			Vincenzo is real happy. He gleefully hands you his converter.
+			do Inventory.remove_item("Vintage_Gun")
+			do Inventory.add_item("Catalytic_Converter")
+			set {catalytic_sold_gun} = true
+		else:
+			You don't have a vintage gun...
 - Ask for Shelter
 	Vincenzo, the gun store owner, eyes your pockets and hands before accepting. Are you sure you want to continue?
 	- Yes
 		The day passes... you swear your belongings are a little lighter now
-		do Inventory.random_lose()
+		You lose 15 money
+		set {Global.player_money} -= 15
+		do Global.sleep()
 	- No
+		Too bad, you get knocked out and lose some cash
+		You lose 20 money
+		set {Global.player_money} -= 20
+		do Global.sleep()

@@ -15,6 +15,7 @@ Our Lady of Guadalupe Catholic Church
 		- Yes
 			You accept Jesus Christ as your Lord and Savior. You have been saved!
 			set {is_catholic} = true
+			set {Global.catholic} = true
 		- No
 			The priest glances at you disgustingly. “Leave this house of God immediately!
 - Ask for Shelter
