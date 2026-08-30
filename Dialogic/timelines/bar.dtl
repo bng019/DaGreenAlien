@@ -1,5 +1,5 @@
 Steve’s Tabernacle
-- Coin flip for the catalytic converter - $20 a try | [if {catalytic_sold} == false] [else="hide"]
+- Coin flip for the catalytic converter - $20 a try | [if {catalytic_sold_bar} == false] [else="hide"]
 	set {Global.player_money} -= 20
 	Call it
 	- Heads
@@ -8,7 +8,7 @@ Steve’s Tabernacle
 			Heads! Congrats!
 			You get a catalytic converter
 			do Inventory.add_item("Catalytic_Converter")
-			set {catalytic_sold} = true
+			set {catalytic_sold_bar} = true
 		else:
 			It is...
 			Tails! You lose!
@@ -18,7 +18,7 @@ Steve’s Tabernacle
 			Congrats! you won!
 			You get a catalytic converter
 			do Inventory.add_item("Catalytic_Converter")
-			set {catalytic_sold} = true
+			set {catalytic_sold_bar} = true
 		else:
 			It is...
 			Heads! You lose!
@@ -27,8 +27,10 @@ Steve’s Tabernacle
 		You have a few drinks and you let it spill that you are now Catholic. The bartender insists you donate to the needy, for he is part of the needy.
 		You lose 15 money
 		set {Global.player_money} -= 15
+		do Global.sleep()
 	else:
 		You have a few drinks and you things get a little rowdy...
 		You wake up with bloody knuckles and a bruise on your face
 		You lose 15 resolve
 		do Global.change_resolve(-15)
+		do Global.sleep()
