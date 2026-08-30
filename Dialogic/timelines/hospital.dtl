@@ -1,4 +1,23 @@
 Caesar’s Hospital
-- Investigate
 - Get Admitted Into the Hospital
-- Pretend to Be a Nurse
+	Would you like to spend $200 to fully restore your resolve?
+	- Yes
+		if {Global.player_money} >= 200:
+			do Global.set_resolve_to_max()
+			set {Global.player_money} -= 200
+			You have been fully healed
+			do Global.use_action()
+		else:
+			You don't have enough money
+	- No
+- Pretend to Be a Nurse (Requires Disguise) | [if {catalytic_found_hospital} == false] [else="hide"]
+	if {Inventory.has_item("Disguise")}:
+		You sneak into the hospital with a doctor disguise. You open the first door you see and it's a closet with a catalytic converter.
+		do Inventory.add_item("Catalytic_Converter")
+		set {catalytic_found_hospital} = true
+		do Global.use_action()
+	else:
+		You don't have a disguise
+- Sleep
+	You stumble into the hospital waiting room and pretend you're waiting for a patient. You fall asleep in the waiting room.
+	do Global.sleep()

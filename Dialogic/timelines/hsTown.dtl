@@ -3,7 +3,7 @@ Honeysuckle Lane
 	if Global.can_action2():
 		if {Inventory.has_item("Saw")}:
 			Your saw helps with your work
-			set {temp_money} = range(20,81).pick_random()
+			set {temp_money} = range(25,81).pick_random()
 			set {Global.player_money} += {temp_money}
 			You made {temp_money} money
 			Your total money is now {Global.player_money}
@@ -21,35 +21,52 @@ Honeysuckle Lane
 - Knock at a random house and ask the resident to let you stay the night.
 	label reroll_start
 	set {random_chance} = range(1,100).pick_random()
-	if {random_chance} <= 20:
-		Placeholder person flavor text
+	if {random_chance} <= 25:
+		The family that owns the place seems to be normal.
+		A dad, a mom, 2 kids and a dog.
 		- Stay
+			Your sleep was relatively normal.
+			do Global.sleep()
 		- Leave
+			do Global.use_action()
 		- Reroll (Costs 1 action)
+			do Global.use_action()
 			jump reroll_start
-	if {random_chance} >= 21 and {random_chance} <= 40:
-		Placeholder person flavor text
+	if {random_chance} >= 26 and {random_chance} <= 50:
+		You’ve come across an abandoned house. Clearly the place has been condemned for many, many years.
 		- Stay
+			You decide to sleep in here. It feels eerie but you remain safe.
+			do Global.sleep()
 		- Leave
+			do Global.use_action()
 		- Reroll (Costs 1 action)
+			do Global.use_action()
 			jump reroll_start
-	if {random_chance} >= 41 and {random_chance} <= 60:
-		Placeholder person flavor text
+	if {random_chance} >= 51 and {random_chance} <= 75:
+		An old couple greets you by the door.
 		- Stay
+			As you get ready to sleep you overhear their conversation about selling you to the government.
+			You jump out the window and don't sleep that night.
+			do Global.change_resolve(-20)
+			do Global.sleep()
 		- Leave
+			do Global.use_action()
 		- Reroll (Costs 1 action)
+			do Global.use_action()
 			jump reroll_start
-	if {random_chance} >= 61 and {random_chance} <= 80:
-		Placeholder person flavor text
+	if {random_chance} >= 76 and {random_chance} <= 100:
+		A 5 foot 10 inch redneck answers the door and lets you in his abode.
+		He seems to be a big sports fan, based on all the Honeysuckle State football team decor lying all around his motor home.
 		- Stay
+			The redneck offers you a beer to help you fall asleep.
+			You drink it like a naive green alien and knock out not soon after. You have the best sleep of your life but this towering hillbilly takes one of your catalytic converters. 
+			You don't confront him because he could probably crush you simply by sitting on you.
+			do Inventory.remove_item("Catalytic_Converter")
+			do Global.sleep()
 		- Leave
+			do Global.use_action()
 		- Reroll (Costs 1 action)
-			jump reroll_start
-	if {random_chance} >= 81 and {random_chance} <= 100:
-		Placeholder person flavor text
-		- Stay
-		- Leave
-		- Reroll (Costs 1 action)
+			do Global.use_action()
 			jump reroll_start
 - Break into a house and rob it (Requires crowbar)
 	if {Inventory.has_item("Crowbar")}:

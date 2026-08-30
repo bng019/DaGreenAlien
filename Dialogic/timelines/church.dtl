@@ -8,13 +8,17 @@ Our Lady of Guadalupe Catholic Church
 # #	else:
 # #		Not enough money
 
-- Get blessing from Priest
+- Get blessing from Priest  | [if {catalytic_found_church} == false] [else="hide"]
 	You feel yourself getting luckier
 	if {is_catholic} == false:
 		Would you like to convert to Catholicism?
 		- Yes
 			You accept Jesus Christ as your Lord and Savior. You have been saved!
+			The priest is so happy that he was able to convert an alien to Catholicism, he gifts you a spare catalytic converter he had lying around!
 			set {is_catholic} = true
+			do Inventory.add_item("Catalytic_Converter")
+			set {catalytic_found_church} = true
+			do Global.use_action()
 		- No
 			The priest glances at you disgustingly. “Leave this house of God immediately!
 - Ask for Shelter
@@ -29,18 +33,24 @@ Our Lady of Guadalupe Catholic Church
 				set {random_chance} = range(1,100).pick_random()
 				if {random_chance} <= 90:
 					You slept safely
+					do Global.sleep()
 				else:
 					Despite being on guard, you wake up feeling cursed
+					do Global.sleep()
 			else:
 				You don't have the resources to do that
 				set {random_chance} = range(1,100).pick_random()
 				if {random_chance} <= 60:
 					You slept safely
+					do Global.sleep()
 				else:
 					You wake up feeling cursed
+					do Global.sleep()
 		- No
 			set {random_chance} = range(1,100).pick_random()
 			if {random_chance} <= 60:
 				You slept safely
+				do Global.sleep()
 			else:
 				You wake up feeling cursed
+				do Global.sleep()

@@ -16,7 +16,7 @@ Honeysuckle Wholesale
 			Not enough money
 	- Crowbar - $100
 		if {Global.player_money} >= 100:
-			do Inventory.add_item("Crowbar", 1, 5)
+			do Inventory.add_item("Crowbar", 1, 10)
 			set {Global.player_money} -= 100
 			You have bought 1 Crowbar
 		else:
