@@ -74,6 +74,7 @@ func get_items_string_detailed(seperator: String = ", ") -> String:
 		else:
 			names.append("%s (%s)" % [item.item_id, ", ".join(temp)])	
 	return seperator.join(names)
+
 func change_durability(item_id: String, amount: int = 1) -> int:
 	var existing := _find_item(item_id)
 	if not existing:
