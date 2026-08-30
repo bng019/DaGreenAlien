@@ -26,6 +26,7 @@ Honeysuckle Lane
 		A dad, a mom, 2 kids and a dog.
 		- Stay
 			Your sleep was relatively normal.
+			do Global.change_resolve(50)
 			do Global.sleep()
 		- Leave
 			do Global.use_action()
@@ -36,6 +37,7 @@ Honeysuckle Lane
 		You’ve come across an abandoned house. Clearly the place has been condemned for many, many years.
 		- Stay
 			You decide to sleep in here. It feels eerie but you remain safe.
+			do Global.change_resolve(40)
 			do Global.sleep()
 		- Leave
 			do Global.use_action()
@@ -47,7 +49,7 @@ Honeysuckle Lane
 		- Stay
 			As you get ready to sleep you overhear their conversation about selling you to the government.
 			You jump out the window and don't sleep that night.
-			do Global.change_resolve(-20)
+			do Global.change_resolve(0)
 			do Global.sleep()
 		- Leave
 			do Global.use_action()
@@ -62,6 +64,7 @@ Honeysuckle Lane
 			You drink it like a naive green alien and knock out not soon after. You have the best sleep of your life but this towering hillbilly takes one of your catalytic converters. 
 			You don't confront him because he could probably crush you simply by sitting on you.
 			do Inventory.remove_item("Catalytic_Converter")
+			do Global.change_resolve(20)
 			do Global.sleep()
 		- Leave
 			do Global.use_action()
@@ -88,3 +91,4 @@ Honeysuckle Lane
 				do Global.use_action()
 	else:
 		You don't have a crowbar
+- Leave

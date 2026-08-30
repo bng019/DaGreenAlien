@@ -13,6 +13,7 @@ func _process(delta):
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/Map.tscn")
+	Dialogic.start("startGame")
 	
 func go_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

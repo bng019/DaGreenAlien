@@ -1,13 +1,4 @@
 Our Lady of Guadalupe Catholic Church
-# #- Ask for forgiveness - $XXX
-# #	if {Global.player_money} >= 100:
-# #			if {Global.player_heat} >= 1:
-# #				set {Global.player_heat} -= 1
-# #			else:
-# #				Heat is at 0
-# #	else:
-# #		Not enough money
-
 - Get blessing from Priest  | [if {catalytic_found_church} == false] [else="hide"]
 	You feel yourself getting luckier
 	if {is_catholic} == false:
@@ -55,3 +46,4 @@ Our Lady of Guadalupe Catholic Church
 			else:
 				You wake up feeling cursed
 				do Global.sleep()
+- Leave

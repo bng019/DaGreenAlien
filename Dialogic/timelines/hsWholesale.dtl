@@ -42,6 +42,7 @@ Honeysuckle Wholesale
 			You have bought 1 Map
 		else:
 			Not enough money
+	- Leave
 	- Catalytic Converter - $100 | [if {catalytic_sold} == false] [else="hide"]
 		if {Global.player_money} >= 100:
 			do Inventory.add_item("Catalytic_Converter")
@@ -55,8 +56,7 @@ Honeysuckle Wholesale
 		Not enough money
 	else:
 		He gives you shelter
-		do Global.change_resolve(0)
-		do Global.change_hunger(-15)
+		do Global.change_resolve(20)
 		do Global.sleep()
 - Rob the Store
 	if {Inventory.has_item("Gun")} and {Global.current_resolve()} <= 50.0:
@@ -70,3 +70,4 @@ Honeysuckle Wholesale
 	else:
 		Great job trying to rob the store without a gun. You are dead bozo.
 		do Global.change_resolve(-100)
+- Leave

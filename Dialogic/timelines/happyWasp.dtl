@@ -16,7 +16,7 @@ HappyWasp Restaurant
 	set {Global.player_money} += {temp_money}
 	You made {temp_money} money
 	Your total money is now {Global.player_money}
-	do {shifts_worked} += 1
+	set {shifts_worked} += 1
 	if {shifts_worked} == 5:
 		The manager notices your hard work.
 		They reward you with a catalytic converter from the back!
@@ -24,4 +24,6 @@ HappyWasp Restaurant
 	do Global.use_action()
 - Sleep
 	You decided to lock yourself in the bathroom and sleep.
+	do Global.change_resolve(20)
 	do Global.sleep()
+- Leave

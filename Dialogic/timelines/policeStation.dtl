@@ -6,6 +6,7 @@ Honeysuckle Police Station
 		do Inventory.add_item("Vintage_Gun")
 		do Inventory.add_item("Catalytic_Converter")
 		set {catalytic_sold_police} = true
+		do Global.use_action()
 	else:
 		You have nothing to rob with! You fool!
 - Bribe police for a vintage gun - $100 | [if {catalytic_sold_police} == false] [else="hide"]
@@ -15,10 +16,13 @@ Honeysuckle Police Station
 		do Inventory.add_item("Catalytic_Converter")
 		set {Global.player_money} -= 100
 		set {catalytic_sold_police} = true
+		do Global.use_action()
 	else:
 		The policeman laughs at your pitiful attempt to bribe him.
 - Ask for shelter
 	To meet quota you are thrown into the slammer
-	You you lose 20 money
+	You lose 20 money
+	do Global.change_resolve(20)
 	set {Global.player_money} -= 20
 	do Global.sleep()
+- Leave

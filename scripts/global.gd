@@ -83,6 +83,7 @@ func sleep() -> void:
 	actions_left = max_actions
 	travels_left = max_travels
 	
+	change_resolve(-20)
 	change_hunger(-20)
 	
 	update_actions.emit(actions_left, travels_left)

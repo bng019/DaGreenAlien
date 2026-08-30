@@ -40,12 +40,14 @@ directories/dtl_directory={
 "outOfTravels": "res://Dialogic/timelines/outOfTravels.dtl",
 "policeStation": "res://Dialogic/timelines/policeStation.dtl",
 "scHoney": "res://Dialogic/timelines/scHoney.dtl",
+"startGame": "res://Dialogic/timelines/startGame.dtl",
 "storeClosed": "res://Dialogic/timelines/storeClosed.dtl",
 "win": "res://Dialogic/timelines/win.dtl"
 }
 layout/style_directory={}
 variables={
 "catalytic_found": false,
+"catalytic_found_church": false,
 "catalytic_found_hospital": false,
 "catalytic_sold": false,
 "catalytic_sold_bar": false,

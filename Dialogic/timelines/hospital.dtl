@@ -12,12 +12,16 @@ Caesar’s Hospital
 	- No
 - Pretend to Be a Nurse (Requires Disguise) | [if {catalytic_found_hospital} == false] [else="hide"]
 	if {Inventory.has_item("Disguise")}:
-		You sneak into the hospital with a doctor disguise. You open the first door you see and it's a closet with a catalytic converter.
+		You sneak into the hospital with a doctor disguise.
+		You open the first door you see and it's a closet with a catalytic converter.
 		do Inventory.add_item("Catalytic_Converter")
 		set {catalytic_found_hospital} = true
 		do Global.use_action()
 	else:
 		You don't have a disguise
 - Sleep
-	You stumble into the hospital waiting room and pretend you're waiting for a patient. You fall asleep in the waiting room.
+	You stumble into the hospital waiting room and pretend you're waiting for a patient.
+	You fall asleep in the waiting room.
+	do Global.change_resolve(20)
 	do Global.sleep()
+- Leave

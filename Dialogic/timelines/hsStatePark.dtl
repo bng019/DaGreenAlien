@@ -19,7 +19,7 @@ Honeysuckle State Park
 		- Yes
 			if {Inventory.has_item("Tent")}:
 				You sleep in the park in your tent.
-				do Global.change_resolve(0)
+				do Global.change_resolve(40)
 				do Global.sleep()
 		- No
 	else:
@@ -50,3 +50,4 @@ Honeysuckle State Park
 		- No
 	else:
 		You don't have the required items
+- Leave

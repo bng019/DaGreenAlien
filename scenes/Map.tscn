@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://ckd2sd7pkhmcj" path="res://scripts/hs_town.gd" id="10_d46yu"]
 [ext_resource type="Script" uid="uid://r21rleuskcb0" path="res://scripts/display_invo.gd" id="11_d46yu"]
 [ext_resource type="Script" uid="uid://bmvuwtedvcpor" path="res://scripts/happy_wasp.gd" id="11_hit12"]
+[ext_resource type="Texture2D" uid="uid://bkbr52bmhcksy" path="res://assets/Hamburger_icon.svg.png" id="13_sdw7q"]
 
 [node name="Map" type="Node2D" unique_id=1921026271]
 
@@ -96,9 +97,14 @@ script = ExtResource("11_hit12")
 
 [node name="Check Inventory" type="TextureButton" parent="Inventory" unique_id=1545584913]
 offset_left = 1.0
-offset_right = 156.0
-offset_bottom = 118.0
+offset_right = 73.0
+offset_bottom = 69.0
 script = ExtResource("11_d46yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory" unique_id=380006449]
+position = Vector2(35.999996, 34.499996)
+scale = Vector2(0.288, 0.27600002)
+texture = ExtResource("13_sdw7q")
 
 [connection signal="pressed" from="Buildings/scHoney" to="Buildings/scHoney" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/hsWholesale" to="Buildings/hsWholesale" method="_on_pressed"]

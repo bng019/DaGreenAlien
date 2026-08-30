@@ -9,9 +9,11 @@ Steve’s Tabernacle
 			You get a catalytic converter
 			do Inventory.add_item("Catalytic_Converter")
 			set {catalytic_sold_bar} = true
+			do Global.use_action()
 		else:
 			It is...
 			Tails! You lose!
+			do Global.use_action()
 	- Tails
 		if {Global.coinflip()} == true:
 			It is..
@@ -19,9 +21,11 @@ Steve’s Tabernacle
 			You get a catalytic converter
 			do Inventory.add_item("Catalytic_Converter")
 			set {catalytic_sold_bar} = true
+			do Global.use_action()
 		else:
 			It is...
 			Heads! You lose!
+			do Global.use_action()
 - Ask for Shelter
 	if {Global.is_catholic()} == true:
 		You have a few drinks and you let it spill that you are now Catholic. The bartender insists you donate to the needy, for he is part of the needy.
@@ -34,3 +38,4 @@ Steve’s Tabernacle
 		You lose 15 resolve
 		do Global.change_resolve(-15)
 		do Global.sleep()
+- Leave
