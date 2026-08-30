@@ -1,0 +1,2 @@
+Your inventory includes:
+{Inventory.get_items_string_detailed()}

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://4rheuiy80453" path="res://scripts/church.gd" id="6_41ykk"]
 [ext_resource type="Script" uid="uid://5x5fo6cv3gff" path="res://scripts/hospital.gd" id="8_ii6k2"]
 [ext_resource type="Script" uid="uid://7lnud8mjr82" path="res://scripts/police_station.gd" id="9_ii6k2"]
+[ext_resource type="Script" uid="uid://r21rleuskcb0" path="res://scripts/display_invo.gd" id="10_46d0c"]
 [ext_resource type="Script" uid="uid://dylenevhwh7s3" path="res://scripts/hs_state_park.gd" id="10_46d0c"]
 [ext_resource type="Script" uid="uid://ckd2sd7pkhmcj" path="res://scripts/hs_town.gd" id="10_d46yu"]
 
@@ -69,6 +70,14 @@ offset_right = 895.0
 offset_bottom = 506.0
 script = ExtResource("9_ii6k2")
 
+[node name="Inventory" type="Node2D" parent="." unique_id=1632680594]
+
+[node name="Check Inventory" type="TextureButton" parent="Inventory" unique_id=1545584913]
+offset_left = -6.0
+offset_right = 11.0
+offset_bottom = 12.0
+script = ExtResource("10_46d0c")
+
 [node name="hsStatePark" type="TextureButton" parent="Buildings" unique_id=448651368]
 offset_left = 211.0
 offset_top = 91.0
@@ -90,5 +99,6 @@ script = ExtResource("10_d46yu")
 [connection signal="pressed" from="Buildings/Church" to="Buildings/Church" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/policeStation" to="Buildings/policeStation" method="_on_pressed"]
+[connection signal="pressed" from="Inventory/Check Inventory" to="Inventory/Check Inventory" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/hsStatePark" to="Buildings/hsStatePark" method="_on_pressed"]
 [connection signal="pressed" from="Buildings/hsTown" to="Buildings/hsTown" method="_on_pressed"]
