@@ -20,3 +20,6 @@ func add(amount: float) -> void: #Function to change health in normal scripts ex
 
 func percent() -> float: #Function if you want the percent health of current health
 	return current / max_value if max_value > 0 else 0.0
+
+func reset() -> void:
+	current = max_value

@@ -97,3 +97,6 @@ func get_item_durability(item_id: String) -> int:
 	if not existing:
 		return -1
 	return existing.durability
+	
+func clear() -> void:
+	items.clear()

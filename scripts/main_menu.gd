@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_start_pressed():
+	Global.reset_game()
 	get_tree().change_scene_to_file("res://scenes/Map.tscn")
 	Dialogic.start("startGame")
 	

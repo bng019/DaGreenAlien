@@ -42,7 +42,6 @@ Honeysuckle Wholesale
 			You have bought 1 Map
 		else:
 			Not enough money
-	- Leave
 	- Catalytic Converter - $100 | [if {catalytic_sold} == false] [else="hide"]
 		if {Global.player_money} >= 100:
 			do Inventory.add_item("Catalytic_Converter")
@@ -51,6 +50,7 @@ Honeysuckle Wholesale
 			You have bought 1 Catalytic Converter
 		else:
 			Not enough money
+	- Leave
 - Ask for Shelter - $100
 	if {Global.player_money} < 100:
 		Not enough money
@@ -60,7 +60,10 @@ Honeysuckle Wholesale
 		do Global.sleep()
 - Rob the Store
 	if {Inventory.has_item("Gun")} and {Global.current_resolve()} <= 50.0:
-		You attempt to rob the store. With you looking disheveled and sickly, the storeowner Bill quickly notices and immediately lunges at you like a mighty tiger. He quickly disarms you and shoots you in the head. You are dead.
+		You attempt to rob the store.
+		With you looking disheveled and sickly, the storeowner Bill quickly notices and immediately lunges at you like a mighty tiger.
+		He quickly disarms you and shoots you in the head. You are dead.
+		do Global.change_resolve(-100)
 	elif {Inventory.has_item("Gun")} and {Global.current_resolve()} >= 51.0:
 		Successfully rob the place
 		set {Global.player_money} += 300

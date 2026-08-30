@@ -61,7 +61,7 @@ Honeysuckle Lane
 		He seems to be a big sports fan, based on all the Honeysuckle State football team decor lying all around his motor home.
 		- Stay
 			The redneck offers you a beer to help you fall asleep.
-			You drink it like a naive green alien and knock out not soon after. You have the best sleep of your life but this towering hillbilly takes one of your catalytic converters. 
+			You drink it like a naive green alien and knock out not soon after. You have the best sleep of your life but this towering hillbilly takes one of your catalytic converters.
 			You don't confront him because he could probably crush you simply by sitting on you.
 			do Inventory.remove_item("Catalytic_Converter")
 			do Global.change_resolve(20)
@@ -84,11 +84,11 @@ Honeysuckle Lane
 			You lost {temp_resolve_loss} resolve
 			Your total resolve is now {Global.current_resolve()}
 			set {crowbar_durability} = Inventory.change_durability("Crowbar", -1)
-				if {crowbar_durability} <= 0:
-					Your crowbar breaks
-				else:
-					Your crowbar has {crowbar_durability} durability left
-				do Global.use_action()
+			if {crowbar_durability} <= 0:
+				Your crowbar breaks
+			else:
+				Your crowbar has {crowbar_durability} durability left
+			do Global.use_action()
 	else:
 		You don't have a crowbar
 - Leave

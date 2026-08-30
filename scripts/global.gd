@@ -84,7 +84,11 @@ func sleep() -> void:
 	travels_left = max_travels
 	
 	change_resolve(-20)
+	if resolve.current <= 0:
+		Dialogic.start("died")
 	change_hunger(-20)
+	if hunger.current <= 0:
+		Dialogic.start("died")
 	
 	update_actions.emit(actions_left, travels_left)
 	start_day.emit(current_day)
@@ -97,3 +101,19 @@ func coinflip() -> bool:
 	
 func is_catholic() -> bool:
 	return catholic
+
+func reset_game() -> void:
+	resolve.reset()
+	hunger.reset()
+	
+	current_day = 1
+	actions_left = max_actions
+	travels_left = max_travels
+	
+	Inventory.clear()
+	
+	update_actions.emit(actions_left, travels_left)
+	start_day.emit(current_day)
+
+func go_main_menu() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

@@ -1,2 +1,2 @@
 You died
-do MainMenu.go_main_menu()
+do Global.go_main_menu()

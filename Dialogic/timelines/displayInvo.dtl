@@ -1,2 +1,3 @@
+Your Resolve is: {Global.current_resolve()} Your Hunger is: {Global.current_hunger()} Your Money is: {Global.player_money}
 Your inventory includes:
 {Inventory.get_items_string_detailed()}

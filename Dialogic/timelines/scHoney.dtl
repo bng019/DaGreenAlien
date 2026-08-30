@@ -1,6 +1,5 @@
 South Central Honeysuckle
 - Panhandle
-	do Inventory.add_item("Crowbar", 1, 5)
 	set {temp_money} = range(5,21).pick_random()
 	set {Global.player_money} += {temp_money}
 	You made {temp_money} money

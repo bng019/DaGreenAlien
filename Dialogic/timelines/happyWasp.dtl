@@ -12,7 +12,7 @@ HappyWasp Restaurant
 		You don't have enough money
 - Work a shift
 	You work as a waiter for the restaurant
-	set {temp_money} = range(40,71).pick_random()
+	set {temp_money} = range(20,46).pick_random()
 	set {Global.player_money} += {temp_money}
 	You made {temp_money} money
 	Your total money is now {Global.player_money}
