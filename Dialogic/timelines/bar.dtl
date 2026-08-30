@@ -25,8 +25,8 @@ Steve’s Tabernacle
 - Ask for Shelter
 	if {Global.is_catholic()} == true:
 		You have a few drinks and you let it spill that you are now Catholic. The bartender insists you donate to the needy, for he is part of the needy.
-		You lose 15 money
-		set {Global.player_money} -= 15
+		You lose 25 money
+		set {Global.player_money} -= 25
 		do Global.sleep()
 	else:
 		You have a few drinks and you things get a little rowdy...

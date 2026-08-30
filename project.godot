@@ -47,6 +47,7 @@ variables={
 "catalytic_found": false,
 "catalytic_sold": false,
 "catalytic_sold_bar": false,
+"catalytic_sold_gun": false,
 "catalytic_sold_police": false,
 "catalytics_used": 0,
 "crowbar_durability": 5,
